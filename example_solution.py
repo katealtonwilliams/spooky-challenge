@@ -94,10 +94,8 @@ def find_solution(input_file: str) -> list[str]:
 
 
 if __name__ == "__main__":
-    print("example 1")
     find_solution("example_1_input.txt")
-    print("example 2")
+    print("\n")
     find_solution("example_2_input.txt")
-    print("example 3")
+    print("\n")
     find_solution("example_3_input.txt")
-    find_solution("aled_input.txt")
