@@ -6,7 +6,7 @@ def parse_input(input_file: str) -> list[str]:
         input = input.readlines()
     all_lines = []
     for line in input:
-        all_lines.append(line)
+        all_lines.append(repr(line))
     return all_lines
 
 
@@ -31,17 +31,26 @@ def find_digit(word_or_digit: str) -> str:
 
 
 def decode_single_coord(line: str) -> int:
-    last_digit_index = -1
+    last_digit_index = 100
     first_digit_index = 100
+
     for word_or_digit in list(spooky_map.keys()) + list(spooky_map.values()):
-        word_index = line.find(word_or_digit)
-        if word_index > -1 and word_index < first_digit_index:
-            first_digit_index = word_index
+        word_distance_from_start = line.find(word_or_digit)
+        word_distance_from_end = line[::-1].find(word_or_digit[::-1])
+
+        if (
+            word_distance_from_start > -1
+            and word_distance_from_start < first_digit_index
+        ):
+            first_digit_index = word_distance_from_start
             first_word_or_digit = word_or_digit
-        if word_index > last_digit_index:
-            last_digit_index = word_index
+
+        if word_distance_from_end > -1 and word_distance_from_end < last_digit_index:
+            last_digit_index = word_distance_from_end
             last_word_or_digit = word_or_digit
+
     full_number = find_digit(first_word_or_digit) + find_digit(last_word_or_digit)
+
     return int(full_number)
 
 
@@ -85,6 +94,10 @@ def find_solution(input_file: str) -> list[str]:
 
 
 if __name__ == "__main__":
-    #find_solution('example_1_input.txt')
-    find_solution('example_input.txt')
-    #find_solution('example_3_input.txt')
+    print("example 1")
+    find_solution("example_1_input.txt")
+    print("example 2")
+    find_solution("example_2_input.txt")
+    print("example 3")
+    find_solution("example_3_input.txt")
+    find_solution("aled_input.txt")
