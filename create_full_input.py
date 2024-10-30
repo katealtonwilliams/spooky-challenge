@@ -104,7 +104,6 @@ def create_input_file(
 
 
 if __name__ == "__main__":
-    create_input_file("pumpkin.txt", "aled_input.txt", create_full_encoded_line)
-    # create_input_file("example_picture_1.txt", "example_1_input.txt")
-    # create_input_file("example_picture_2.txt", "example_2_input.txt")
-    # create_input_file("example_picture_3.txt", "example_3_input.txt")
+    create_input_file(
+        "pumpkin.txt", "matthew_wilson_input.txt", create_full_encoded_line
+    )

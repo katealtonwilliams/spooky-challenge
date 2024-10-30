@@ -1,6 +1,3 @@
-import copy
-
-
 def parse_input(input_file: str) -> list[str]:
     with open(input_file) as input:
         input = input.readlines()
@@ -93,9 +90,4 @@ def find_solution(input_file: str) -> list[str]:
         print(line)
 
 
-if __name__ == "__main__":
-    find_solution("example_1_input.txt")
-    print("\n")
-    find_solution("example_2_input.txt")
-    print("\n")
-    find_solution("example_3_input.txt")
+find_solution("matthew_wilson_input.txt")
