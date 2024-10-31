@@ -2,4 +2,3 @@ brainteaser_venv
 .ruff_cache
 __pycache__
 ruff.toml
-_pycache_
