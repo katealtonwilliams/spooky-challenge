@@ -42,11 +42,16 @@ def decode_single_coord(line: str) -> int:
             first_digit_index = word_distance_from_start
             first_word_or_digit = word_or_digit
 
-        if word_distance_from_end > -1 and word_distance_from_end < last_digit_index:
+        if (
+            word_distance_from_end > -1
+            and word_distance_from_end < last_digit_index
+        ):
             last_digit_index = word_distance_from_end
             last_word_or_digit = word_or_digit
 
-    full_number = find_digit(first_word_or_digit) + find_digit(last_word_or_digit)
+    full_number = find_digit(first_word_or_digit) + find_digit(
+        last_word_or_digit
+    )
 
     return int(full_number)
 
@@ -58,7 +63,10 @@ def decode_all_coords(all_lines: list[str]) -> list[tuple[int]]:
     decoded_coords = []
     for encoded_row, encoded_column in encoded_coords:
         decoded_coords.append(
-            (decode_single_coord(encoded_row), decode_single_coord(encoded_column))
+            (
+                decode_single_coord(encoded_row),
+                decode_single_coord(encoded_column),
+            )
         )
     return decoded_coords
 
@@ -75,7 +83,9 @@ def create_grid(max_indices: tuple[int]) -> list[str]:
     return [row] * max_row
 
 
-def plot_points(max_indices: tuple[int], decoded_coords: list[tuple[int]]) -> list[str]:
+def plot_points(
+    max_indices: tuple[int], decoded_coords: list[tuple[int]]
+) -> list[str]:
     grid = create_grid(max_indices)
     for row, column in decoded_coords:
         grid[row] = grid[row][:column] + "x" + grid[row][column + 1 :]
@@ -90,4 +100,6 @@ def find_solution(input_file: str) -> list[str]:
         print(line)
 
 
-find_solution("matthew_wilson_input.txt")
+if __name__ == '__main__':
+
+    pass

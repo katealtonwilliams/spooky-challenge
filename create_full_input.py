@@ -52,9 +52,9 @@ def random_character_generator_start_end() -> str:
 
 def random_character_generator_middle() -> str:
     number_of_chars = random.randrange(0, 10)
-    characters = list(string.ascii_letters + string.punctuation + string.digits) + list(
-        spooky_word.values()
-    )
+    characters = list(
+        string.ascii_letters + string.punctuation + string.digits
+    ) + list(spooky_word.values())
     return "".join(random.choice(characters) for i in range(number_of_chars))
 
 
@@ -79,7 +79,9 @@ def create_full_encoded_line(coord: int) -> str:
     return line_options[0]
 
 
-def encode_all_coords(all_coords: list[tuple[int]], encode_func: Callable) -> list[str]:
+def encode_all_coords(
+    all_coords: list[tuple[int]], encode_func: Callable
+) -> list[str]:
     all_coords_encoded = []
     for coord in all_coords:
         row, column = coord

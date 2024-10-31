@@ -17,9 +17,9 @@ def random_generator_2():
 
 def random_generator_3() -> str:
     number_of_chars = random.randrange(0, 5)
-    characters = list(string.ascii_letters + string.punctuation + string.digits) + list(
-        spooky_word.values()
-    )
+    characters = list(
+        string.ascii_letters + string.punctuation + string.digits
+    ) + list(spooky_word.values())
     return "".join(random.choice(characters) for i in range(number_of_chars))
 
 
